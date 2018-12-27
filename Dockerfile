@@ -1,4 +1,4 @@
-ARG NEXUS_VERSION=3.13.0
+ARG NEXUS_VERSION=3.14.0
 
 FROM maven:3-jdk-8-alpine AS build
 ARG NEXUS_VERSION=3.13.0
@@ -9,7 +9,7 @@ RUN cd /nexus-repository-conan/; sed -i "s/3.13.0-01/${NEXUS_VERSION}-${NEXUS_BU
     mvn clean package;
 
 FROM sonatype/nexus3:$NEXUS_VERSION
-ARG NEXUS_VERSION=3.13.0
+ARG NEXUS_VERSION=3.14.0
 ARG NEXUS_BUILD=01
 ARG CONAN_VERSION=0.0.4
 ARG TARGET_DIR=/opt/sonatype/nexus/system/org/sonatype/nexus/plugins/nexus-repository-conan/${CONAN_VERSION}/
